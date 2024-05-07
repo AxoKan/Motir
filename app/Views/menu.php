@@ -42,8 +42,17 @@
                 <div data-i18n="Account Settings">Order</div>
               </a>
             </li>
-
+ <li class="menu-header small text-uppercase">
+              <span class="menu-header-text">Laporan</span>
+            </li>
+            <li class="menu-item <?php if($uri->getSegment(2) == "laporan"){echo "active";}?> <?php if($uri->getSegment(2) == "laporan"){echo "active";}?>">
+              <a href="<?= base_url("home/laporan")?>" class="menu-link">
+                <i class="menu-icon tf-icons bx bx-spreadsheet"></i>
+                <div data-i18n="Account Settings">Laporan</div>
+              </a>
+            </li> 
         </aside>
+
         <!-- / Menu -->
 
         <!-- Layout container -->

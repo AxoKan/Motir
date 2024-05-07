@@ -8,7 +8,7 @@
         <div class="container">
             <form action="<?= base_url('home/aksi_order')?>" method="post">
                 <div class="pagetitle">
-                    <h1>ORDER</h1>
+                    <h1>Order</h1>
                      <div class="row">
                 <div class="col-md-12">
                   <ul class="nav nav-pills flex-column flex-md-row mb-3">

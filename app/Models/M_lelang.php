@@ -106,6 +106,11 @@ public function cari($table, $table2, $on, $awal, $akhir){
 							->getWhere("tanggal BETWEEN '$awal' AND '$akhir'")
 							->getResult();
 }
+public function cari1($table, $awal, $akhir){
+			return $this->db->table($table)
+							->getWhere("tanggal_awal BETWEEN '$awal' AND '$akhir'")
+							->getResult();
+}
 
     public function getProdukPrice($produk)
 {

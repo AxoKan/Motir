@@ -1,7 +1,7 @@
 <main id="main" class="main">
   <div class="container">
     <div class="pagetitle">
-      <h1>ORDER IN PROGRESS</h1>
+      <h1>Order In Progress</h1>
       <nav>
          <div class="row">
                 <div class="col-md-12">

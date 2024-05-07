@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 use App\Models\M_lelang;
-use Illuminate\Http\Request;
 class Home extends BaseController
 {
     public function index()
@@ -29,7 +28,6 @@ class Home extends BaseController
             session()->set('email',$cek->email);
             session()->set('no_hp',$cek->no_hp);
             session()->set('level',$cek->level);
-            session()->set('alamat',$cek->alamat);
             return redirect()->to('dashboard');
         }else{
             return redirect()-> to('');
@@ -174,7 +172,7 @@ public function aksi_profile()
       $model = new M_lelang();
       
       $a= $this->request->getPost('firstName');
-        $b= $this->request->getPost('alamat');
+        $b= $this->request->getPost('password');
       $c= $this->request->getPost('email');
       $d= $this->request->getPost('phoneNumber');
       $id= $this->request->getPost('id');
@@ -187,7 +185,7 @@ public function aksi_profile()
 
     
             'nama'=> $a,
-             'alamat'  => $b,
+             'password'  => $b,
             'email'=> $c,
             'no_hp'=> $d,
             'photo'=>$photo
@@ -222,6 +220,43 @@ public function aksi_user()
 
     return redirect()->to('');
 }
+ public function laporan()
+    {
+         $model= new M_lelang();
+    $where=array('id_user'=>session()->get('id'));
+    $data['user']=$model->getwhere('user',$where);
+            echo view('header');
+            echo view('menu',$data);
+              echo view('laporan');
+            echo view('footer');
+    }
+    public function print(){
+   $model= new M_lelang();
+        $a= $this->request->getPost('DATE');
+        $b= $this->request->getPost('DATE1');
+        $data['print'] = $model->cari1('history',$a,$b);
+    return view('print',$data);
+
+
+}
+ public function PDF(){
+   $model= new M_lelang();
+        $a= $this->request->getPost('DATE2');
+        $b= $this->request->getPost('DATE3');
+        $data['print'] = $model->cari1('history',$a,$b);
+    return view('PDF',$data);
+
+
+}
+public function Excel(){
+   $model= new M_lelang();
+        $a= $this->request->getPost('DATE4');
+        $b= $this->request->getPost('DATE5');
+        $data['print'] = $model->cari1('history',$a,$b);
+    return view('Excel',$data);
+
+
+}
+
   }
 
-  

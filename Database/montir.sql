@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 21, 2024 at 04:28 PM
+-- Generation Time: May 07, 2024 at 03:09 AM
 -- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -43,16 +43,21 @@ CREATE TABLE `history` (
 --
 
 INSERT INTO `history` (`id_history`, `nama`, `alamat`, `tanggal_awal`, `tanggal_akhir`, `jenis`, `harga`, `metode`) VALUES
-(4, 'Budhi Jayanto', 'botania 2', '2024-03-17', '2024-03-24', 'Pengecekan', 50000, 'cash'),
-(5, 'Erwin Lie', 'botania 1', '2024-03-14', '2024-03-25', 'Perbaikan', 100000, 'transfer'),
-(6, 'Keane MB', 'Orchid Park', '2024-03-05', '2024-03-18', 'Pengecekan dan Perbaikan', 150000, 'cash'),
-(7, 'David Lim', 'sydney', '2024-03-18', '2024-03-11', 'Perbaikan', 100000, 'transfer'),
-(8, 'Evanexel Benedict', 'golden park', '2024-03-20', '2024-03-22', 'Pengecekan', 30000000, 'transfer'),
-(9, 'Lietat Lim', 'batu batam', '2024-03-19', '2024-03-20', 'Pengecekan', 30000000, 'transfer'),
-(10, 'Lina Lim', 'grand batam', '2024-03-29', '2024-03-30', 'Pengecekan', 80000, 'cash'),
-(11, 'Yuro Stoner', 'golden park', '2024-03-02', '2024-03-13', 'Pengecekan dan Perbaikan', 30000000, 'cash'),
-(12, 'Budhi Jayanto', 'komplek raflesia', '2024-03-19', '2024-03-20', 'Pengecekan', 834334, 'transfer'),
-(13, 'Budhi Jayanto', 'komplek asam', '2024-03-18', '2024-03-21', 'Pengecekan', 100000, 'transfer');
+(1, 'Marc Dolos', 'botania 2', '2024-03-17', '2024-03-24', 'Pengecekan', 50000, 'cash'),
+(2, 'Marc Dolos', 'botania 1', '2024-03-14', '2024-03-25', 'Perbaikan', 100000, 'transfer'),
+(3, 'Marc Dolos', 'Orchid Park', '2024-03-05', '2024-03-18', 'Pengecekan dan Perbaikan', 150000, 'cash'),
+(4, 'Marc Dolos', 'sydney', '2024-03-18', '2024-03-11', 'Perbaikan', 100000, 'transfer'),
+(5, 'BudhiAhwad', 'golden park', '2024-03-20', '2024-03-22', 'Pengecekan', 30000000, 'transfer'),
+(6, 'BudhiAhwad', 'batu batam', '2024-03-19', '2024-03-20', 'Pengecekan', 30000000, 'transfer'),
+(7, 'BudhiAhwad', 'grand batam', '2024-03-29', '2024-03-30', 'Pengecekan', 80000, 'cash'),
+(8, 'weny aja', 'golden park', '2024-03-02', '2024-03-13', 'Pengecekan dan Perbaikan', 30000000, 'cash'),
+(9, 'weny aja', 'komplek raflesia', '2024-03-19', '2024-03-20', 'Pengecekan', 834334, 'transfer'),
+(10, 'weny aja', 'komplek asam', '2024-03-18', '2024-03-21', 'Pengecekan', 100000, 'transfer'),
+(11, 'AxoAja', 'botania 2', '2024-03-21', '2024-03-21', 'Perbaikan', 30000000, 'transfer'),
+(12, 'AxoAja', 'Komplek Eden Park', '2024-04-01', '2024-04-01', 'Perbaikan', 100000, 'transfer'),
+(13, 'AxoAja', 'Mall Batam', '2024-03-27', '2024-04-01', 'Perbaikan', 100000, 'transfer'),
+(17, 'AxoAja', 'Botania', '2024-04-01', '2024-04-05', 'Pengecekan dan Perbaikan', 100000, 'cash'),
+(18, 'BudhiAhwad', 'sydney', '2024-03-18', '2024-04-17', 'Perbaikan', 100000, 'transfer');
 
 -- --------------------------------------------------------
 
@@ -70,6 +75,19 @@ CREATE TABLE `order` (
   `Jenis_Pemesanan` enum('Perbaikan','Pengecekan','Pengecekan dan Perbaikan') DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `order`
+--
+
+INSERT INTO `order` (`id_pesanan`, `alamat`, `metode`, `harga`, `nama_pemesan`, `tanggal_pemesanan`, `Jenis_Pemesanan`) VALUES
+(2, 'sydney', 'transfer', 100000, 'BudhiAhwad', '2024-04-14', 'Perbaikan'),
+(3, 'sydney', 'transfer', 100000, 'weny aja', '2024-04-22', 'Perbaikan'),
+(4, 'sydney', 'cash', 100000, 'BudhiAhwad', '2024-04-01', 'Perbaikan'),
+(5, 'sydney', 'transfer', 100000, 'weny aja', '2024-03-31', 'Perbaikan'),
+(6, 'sydney', 'cash', 100000, 'BudhiAhwad', '2024-03-28', 'Perbaikan'),
+(8, 'sydney', 'cash', 100000, 'weny aja', '2024-03-12', 'Perbaikan'),
+(9, 'Botania', 'cash', 100000, 'AxoAja', '2024-04-01', 'Perbaikan');
+
 -- --------------------------------------------------------
 
 --
@@ -80,9 +98,8 @@ CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
   `nama` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `alamat` varchar(255) DEFAULT NULL,
   `no_hp` varchar(255) DEFAULT NULL,
-  `level` enum('1','2','3') DEFAULT NULL,
+  `level` enum('Admin','Montir','User') DEFAULT NULL,
   `photo` varchar(255) DEFAULT NULL,
   `password` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -91,12 +108,14 @@ CREATE TABLE `user` (
 -- Dumping data for table `user`
 --
 
-INSERT INTO `user` (`id_user`, `nama`, `email`, `alamat`, `no_hp`, `level`, `photo`, `password`) VALUES
-(1, 'Budhi Jayanto', 'axovers@gmail.com', 'botania 2', '82169116807', '1', 'PP Astronot.png', 1137),
-(2, 'Axovers_', 'axovers@gmail.com', 'botania 2', '82169116807', '2', 'Axo.png', 1137),
-(3, 'Marc Dolos', 'axovers@gmail.com', 'botania 2', '82169116807', '3', 'Marc.jpeg', 1137),
-(4, 'weny aja', 'wenny123@gmail.com', 'botania 2', '434343', '3', 'mini rimuru.jpg', 1137),
-(5, 'BudhiAhwad', 'budijayanto174@gmail.com', 'Bukit Palem Permai', '82169076811', '3', 'PP Chip.png', 1137);
+INSERT INTO `user` (`id_user`, `nama`, `email`, `no_hp`, `level`, `photo`, `password`) VALUES
+(1, 'Budhi Jayanto', 'axovers@gmail.com', '82169116807', 'Admin', 'Marcuse.jpg', 1137),
+(2, 'Axovers_', 'axovers@gmail.com', '82169116807', 'Montir', 'Axo.png', 1137),
+(3, 'Marc Dolos', 'axovers@gmail.com', '82169116807', 'Montir', 'Marc.jpeg', 1137),
+(4, 'weny aja', 'wenny123@gmail.com', '434343', 'User', 'mini rimuru.jpg', 1137),
+(5, 'BudhiAhwad', 'budijayanto174@gmail.com', '82169076811', 'User', 'PP Chip.png', 1137),
+(7, 'AxoAja', 'AxoAja@gmail.com', '2232323', 'User', 'PP Astronot.png', 1137),
+(9, 'budhi_ahwad', 'budijayanto174@gmail.com', '82169076811', 'Admin', 'PP Aquarium.png', 1137);
 
 --
 -- Indexes for dumped tables
@@ -128,19 +147,19 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `history`
 --
 ALTER TABLE `history`
-  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id_history` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id_pesanan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

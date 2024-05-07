@@ -3,7 +3,7 @@
     <div class="pagetitle">
       <h1>History</h1>
       <nav>
-                      <div class="row">
+         <div class="row">
                 <div class="col-md-12">
                   <ul class="nav nav-pills flex-column flex-md-row mb-3">
                     <li class="nav-item">
@@ -11,17 +11,16 @@
                         ><i class="bx bx-message-alt-add"></i> ORDER</a>
                       
                     </li>
-                      <li class="nav-item">
+                    <li class="nav-item">
                       <a class="nav-link" href="<?=base_url('home/inprogress')?>"
-                        ><i class="bx bx-spreadsheet me-1"></i>IN PROGRESS</a
+                        ><i class="bx bx-history me-1"></i> IN PROGRESS</a
                       >
                     </li>
-                     <li class="nav-item">
+                    <li class="nav-item">
                       <a class="nav-link active" href="javascript:void(0);"
-                        ><i class="bx bx-history me-1"></i> HISTORY</a
+                        ><i class="bx bx-spreadsheet me-1"></i> HISTORY</a
                       >
-      </nav>
-    </div><!-- End Page Title -->
+                      
       </nav>
     </div><!-- End Page Title -->
 
@@ -56,7 +55,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                 <?php
+                        <?php
       $no=1;
       foreach ($axo as $key){
       ?>

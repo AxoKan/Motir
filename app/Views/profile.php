@@ -55,16 +55,22 @@
                               autofocus
                             />
                           </div>
-                          <div class="mb-3 col-md-6">
-                            <label for="firstName" class="form-label">Alamat</label>
-                            <input
-                              class="form-control"
-                              type="text"
-                              id="alamat"
-                              name="alamat"
-                              value="<?= $user->alamat?>"
-                              autofocus
-                            />
+                          <div class="mb-3 col-md-6 form-password-toggle">
+                            <div class="d-flex justify-content-between">
+                              <label class="form-label" for="password">Password</label>
+                              <a href="auth-forgot-password-basic.html"></a>
+                            </div>
+                            <div class="input-group input-group-merge">
+                              <input
+                                type="password"
+                                id="password"
+                                class="form-control"
+                                name="password"
+                                value="<?= $user->password?>"
+                                aria-describedby="password"
+                              />
+                              <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
+                            </div>
                           </div>
                           <div class="mb-3 col-md-6">
                             <label for="email" class="form-label">E-mail</label>
@@ -79,7 +85,7 @@
                           <div class="mb-3 col-md-6">
                             <label class="form-label" for="phoneNumber">Phone Number</label>
                             <div class="input-group input-group-merge">
-                              <span class="input-group-text">Rp (+62)</span>
+                              <span class="input-group-text">(+62)</span>
                               <input
                                 type="text"
                                 id="phoneNumber"
@@ -88,7 +94,6 @@
                                 value="<?= $user->no_hp?>"
                               />
                             </div>
-                          </div>
                           </div>
                         </div>
                          <div class="row mb-3">
